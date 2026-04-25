@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Docker + CI/CD Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: rgba(255,255,255,0.2);
+            padding: 30px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background: #ff6b6b;
+            border: none;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Docker + CI/CD Pipeline</h1>
+        <p>Số lần chạy: <span id="counter">0</span></p>
+        <button onclick="clickMe()">Click để test</button>
+        <p style="margin-top: 20px; font-size: 14px;">
+            Đã đóng gói bằng Docker<br>
+            CI/CD tự động qua GitHub Actions
+        </p>
+    </div>
+    <script>
+        let count = localStorage.getItem('count') || 0;
+        document.getElementById('counter').innerText = count;
+        
+        function clickMe() {
+            count++;
+            document.getElementById('counter').innerText = count;
+            localStorage.setItem('count', count);
+        }
+    </script>
+</body>
+</html>
